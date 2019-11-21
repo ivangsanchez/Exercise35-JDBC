@@ -9,18 +9,24 @@ public class databaseutil {
 			"&serverTimezone=UTC";
 	
 	public static Connection getConnection() {
-		String dbms = "mysql";
-		String host = "localhost";
-		String port = "3306";
-		String dataBase = "frases_matonas";
-		String user = "root";
-		String pass = "admin";
+		String dbms = "mysql";//1
+		String host = "localhost";//2
+		String port = "3306";//3
+		String dataBase = "frases_matonas";//4
+		String user = "root";//5
+		String pass = "admin";//6
+		
+		//7
 		String url = String.format(URL_FORMAT, dbms, host, port, dataBase);
 		
+		// se crea un objeto llamado connection encargado de conectar con la base de datos
 		Connection connection = null;
 		
 		try {
+			//creando estancia de driver en memoria para poder ser accedida
 			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			//obtener la conexión a la base de datos
 			connection = DriverManager.getConnection(url, user, pass);
 		} catch (Exception e) {
 			e.printStackTrace();

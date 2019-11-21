@@ -3,8 +3,10 @@ package com.frasesmatonas.model;
 public class Persona {
 	
 	private String nombre;
-	private short edad;
+	private int edad;
 	private String carrera;
+	private int idPersona;
+	private String fecha;
 	
 	
 	//constructor vacio
@@ -13,7 +15,7 @@ public class Persona {
 	}
 	
 	//constructor parametrizado
-	public Persona(String nombre, short edad,String carrera)
+	public Persona(String nombre, int edad,String carrera)
 	{
 		this.nombre=nombre;
 		this.edad=edad;
@@ -35,12 +37,12 @@ public class Persona {
 	}
 	
 ///////////// Edad ////////		
-	public short getEdad()
+	public int getEdad()
 	{
 		return edad;
 	}
 	
-	public void setEdad(short edad)
+	public void setEdad(int edad)
 	{
 		this.edad=edad;
 	}
@@ -54,6 +56,35 @@ public class Persona {
 	public void setCarrera(String carrera)
 	{
 		this.carrera=carrera;
+	}
+	
+//////////id Persona ////////
+public int getIdPersona()
+{
+	return idPersona;
+}
+
+public void setIdPersona(int idPersona)
+{
+	this.idPersona=idPersona;
+}
+
+/////////// fecha /////////
+public String getFecha()
+{
+return fecha;
+}
+
+
+public void setFecha(String fecha)
+{
+this.fecha=fecha;
+}
+
+	
+	@Override
+	public String toString() {
+	return String.format("'%s',%d,'%s'", nombre,edad,carrera);
 	}
 	
 	
