@@ -16,18 +16,11 @@ public class FraseServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html charset='utf-8'");
-		PrintWriter output = resp.getWriter();
 		
 		String txtContenido=req.getParameter("txtContenido");
 		String txtFecha_Cita=req.getParameter("txtFecha_Cita");
 		String txtCantidad=req.getParameter("txtCantidad");
-		
-		output.println("Contenido:"+txtContenido);
-		output.println("Fecha Cita:"+txtFecha_Cita);
-		output.println("Cantidad:"+txtCantidad);
-		
-		output.close();
+
 		
 	}
 	
