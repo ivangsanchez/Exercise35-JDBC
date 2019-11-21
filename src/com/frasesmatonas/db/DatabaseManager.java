@@ -1,5 +1,6 @@
 package com.frasesmatonas.db;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,19 +41,20 @@ public class DatabaseManager {
 	}
 	
 	public void crearFrase(Frase frase){
-		
-		//se rellena la query con la información de persona
 				String query="insert into frase(contenido, cantidad,fechacita) "
-						+ "values("+frase.toString()+")";
+						+ "values(?,?,?)";
 				
-				//se crea un statement para hacer la ejecución del código SQL
-				Statement stmnt =null;
+				PreparedStatement stmnt=null;				
 				
 				// se crea una conexión con la base de datos y se ejecuta la query
 				try {
-					stmnt = conn.createStatement();
-					//stmnt.executeQuery(query);
-					stmnt.executeUpdate(query);
+					stmnt = conn.prepareStatement(query);
+					
+					stmnt.setString(1,frase.getContenido());
+					stmnt.setInt(2,frase.getCantidad());
+					stmnt.setString(3,frase.getFechacita());
+					
+					stmnt.executeUpdate();
 				} catch (Exception e) {
 					
 					e.printStackTrace();
